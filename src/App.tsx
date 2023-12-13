@@ -2,14 +2,19 @@ import { useState } from 'react'
 
 function App() {
 	const [formOpened, setFormOpened] = useState(false)
+	const [isSended, setIsSended] = useState(false)
 	const [mail, setMail] = useState('')
 	function handleClick(e: any) {
 		e.preventDefault()
+		if (isSended) {
+			return
+		}
 		if (!formOpened) {
 			setFormOpened(true)
 			return
 		}
 		alert('Your request has been sent')
+		setIsSended(true)
 		setMail('')
 		setFormOpened(false)
 	}
@@ -42,7 +47,7 @@ function App() {
 						onClick={handleClick}
 						className={`${formOpened ? 'opened' : ''}`}
 					>
-						{formOpened ? 'Send' : 'Contact us'}
+						{formOpened ? 'Send' : isSended ? 'Thank you :)' : 'Contact us'}
 					</button>
 				</form>
 			</div>
