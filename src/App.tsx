@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 function App() {
 	const [formOpened, setFormOpened] = useState(false)
+	const [mail, setMail] = useState('')
 	function handleClick(e: any) {
 		e.preventDefault()
 		if (!formOpened) {
@@ -9,13 +10,14 @@ function App() {
 			return
 		}
 		alert('Your request has been sent')
+		setMail('')
 		setFormOpened(false)
 	}
 	return (
 		<main>
 			<header>
 				<div className='logo'>
-					<img src='../public/logo.svg' width={35} height={35} />
+					<img src='/logo.svg' width={35} height={35} />
 					<span>Creative Edge</span>
 				</div>
 				<span className='mail'>agaanomail@gmail.com</span>
@@ -32,6 +34,8 @@ function App() {
 				<form>
 					<input
 						placeholder='Enter your mail'
+						value={mail}
+						onChange={e => setMail(e.target.value)}
 						className={`${formOpened ? 'opened' : ''}`}
 					/>
 					<button
