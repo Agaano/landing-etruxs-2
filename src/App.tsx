@@ -1,9 +1,26 @@
 import { useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
 	const [formOpened, setFormOpened] = useState(false)
 	const [isSended, setIsSended] = useState(false)
 	const [mail, setMail] = useState('')
+	const error = (content: string) =>
+		toast.error(content, {
+			position: 'bottom-left',
+			theme: 'dark',
+		})
+	const success = (content: string) =>
+		toast.success(content, {
+			position: 'bottom-left',
+			theme: 'dark',
+		})
+
+	function randNext(min: number, max: number) {
+		return Math.random() * (max - min) + min
+	}
+
 	function handleClick(e: any) {
 		e.preventDefault()
 		if (isSended) {
@@ -13,7 +30,22 @@ function App() {
 			setFormOpened(true)
 			return
 		}
-		alert('Your request has been sent')
+		const reg = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+		if (!reg.test(mail)) {
+			error('Invalid mail!')
+			return
+		}
+		toast.promise(
+			new Promise(resolve => {
+				setTimeout(resolve, randNext(2000, 4000))
+			}),
+			{
+				pending: 'Sending...',
+				error: 'Something went wrong...',
+				success: 'Request sended :)',
+			},
+			{ position: 'bottom-left', theme: 'dark' }
+		)
 		setIsSended(true)
 		setMail('')
 		setFormOpened(false)
@@ -51,6 +83,7 @@ function App() {
 					</button>
 				</form>
 			</div>
+			<ToastContainer />
 		</main>
 	)
 }

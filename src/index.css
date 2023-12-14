@@ -105,7 +105,7 @@ a:hover {
 .container form button:not(.opened):before {
 	content: '';
 	position: absolute;
-	inset: -5px;
+	inset: -2px;
 	background: linear-gradient(
 		135deg,
 		transparent 35%,
@@ -114,9 +114,13 @@ a:hover {
 		transparent 65%
 	);
 	background-size: 300% 300%;
-	border-radius: 12px;
+	border-radius: 9px;
 	animation: conicRotating 5s ease infinite;
 	z-index: -1;
+}
+
+.Toastify__toast-theme--dark {
+	font-size: 12rem;
 }
 
 @keyframes conicRotating {
