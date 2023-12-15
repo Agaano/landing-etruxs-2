@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css'
 function App() {
 	const [formOpened, setFormOpened] = useState(false)
 	const [isSended, setIsSended] = useState(false)
+
 	const [mail, setMail] = useState('')
 	const error = (content: string) =>
 		toast.error(content, {
@@ -57,7 +58,17 @@ function App() {
 					<img src='/logo.svg' width={35} height={35} />
 					<span>Creative Edge</span>
 				</div>
-				<span className='mail'>agaanomail@gmail.com</span>
+				<div className='social'>
+					<a href='https://vk.com/idivankov' target='_blank'>
+						<img src='/vk.svg' width={40} height={40} />
+					</a>
+					<a href='https://t.me/tghogho' target='_blank'>
+						<img src='/telegram.svg' width={40} height={40} />
+					</a>
+					<a href='#'>
+						<img src='/instagram.svg' width={40} height={40} />
+					</a>
+				</div>
 			</header>
 			<div className='container '>
 				<div className='title'>
@@ -65,7 +76,8 @@ function App() {
 					<h2>Inspire Action. Drive Results</h2>
 				</div>
 				<p>
-					From concept to execution, we guide your journey to success with
+					From concept to execution, we guide your journey to success with{' '}
+					<br />
 					tailored advertising solutions
 				</p>
 				<form>
@@ -83,6 +95,12 @@ function App() {
 					</button>
 				</form>
 			</div>
+			<footer>
+				<div className='phone'>
+					<img src='/phone.svg' width={40} height={40} /> +79624386247
+				</div>{' '}
+				<span className='mail'>agaanomail@gmail.com</span>
+			</footer>
 			<ToastContainer />
 		</main>
 	)
