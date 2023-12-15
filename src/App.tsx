@@ -59,10 +59,10 @@ function App() {
 					<span>Creative Edge</span>
 				</div>
 				<div className='social'>
-					<a href='https://vk.com/idivankov' target='_blank'>
+					<a href='№'>
 						<img src='/vk.svg' width={40} height={40} />
 					</a>
-					<a href='https://t.me/tghogho' target='_blank'>
+					<a href='№'>
 						<img src='/telegram.svg' width={40} height={40} />
 					</a>
 					<a href='#'>
@@ -97,7 +97,7 @@ function App() {
 			</div>
 			<footer>
 				<div className='phone'>
-					<img src='/phone.svg' width={40} height={40} /> +79624386247
+					<img src='/phone.svg' width={40} height={40} /> +7 (999) 666-22-22
 				</div>{' '}
 				<span className='mail'>agaanomail@gmail.com</span>
 			</footer>
